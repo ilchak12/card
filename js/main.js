@@ -38,6 +38,7 @@ function update() {
 }
 
 // Card form validation
+const tryCardBtn = document.getElementsByClassName('card-try')[0];
 const cardForm = document.getElementsByClassName('card__form')[0];
 const card = document.getElementsByClassName('card')[0];
 
@@ -46,6 +47,12 @@ const validMonthInput = document.getElementsByClassName('card__input_valid-month
 const validYearInput = document.getElementsByClassName('card__input_valid-year')[0];
 const cvvInput = document.getElementsByClassName('card__input_cvv')[0];
 const holderInput = document.getElementsByClassName('card__input_cardholder')[0];
+
+tryCardBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    numberInput.focus();
+})
 
 numberInput.addEventListener('input', function() {
     if (this.value.length > 0) this.value = this.value.replace(/(\d{4})(?!\s|$)/gm, `$1 `).match(/(?:\d{4} ?){0,3}(?:\d{0,4})?/);
