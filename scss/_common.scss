@@ -254,6 +254,7 @@ p {
     @include transparent-bg-input($color-white);
     border-bottom: 2px solid transparent;
     transition: 0.3s ease-in-out all;
+    line-height: 1;
 
     &::placeholder {
       color: darken($color-white, 40);
@@ -285,15 +286,22 @@ p {
 
     &.error {
       border-bottom: 2px solid #8f0000;
+      animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     }
   }
 
   &__input-area {
     display: flex;
     gap: 5px;
+    align-items: flex-start;
   }
 
-  &.error {
-    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  &__warning {
+    position: absolute;
+    top: calc(100% + 30px);
+    left: 0;
+    text-align: center;
+    width: 100%;
+    animation: glide 3s ease infinite;
   }
 }

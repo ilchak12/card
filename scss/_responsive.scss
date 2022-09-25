@@ -21,7 +21,7 @@
 	}
 
 	.card-section {
-		padding: 100px 0 50px;
+		padding: 100px 0 70px;
 
 		&__row {
 			gap: 30px;
@@ -30,6 +30,10 @@
 		&__card {
 			transform-style: flat;
 			transform: none !important;
+
+			&.error {
+				animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+			}
 		}
 	}
 

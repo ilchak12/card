@@ -75,12 +75,11 @@ holderInput.addEventListener('input', function () {
     if (this.value.length > 0) this.value = this.value.replace(/[^a-zA-Zа-яА-Я ]/g, ``);
 })
 
-
 function jumpToInput(current, next) {
     current.value.length === current.maxLength ? next.focus() : false;
 }
 
-function numberValidation(inputDOM, reqLength, inputNameString, objProperty) {
+function numberValidation(inputDOM, reqLength, inputNameString) {
     if (inputDOM.value == null || inputDOM.value == '') {
         console.log(`${inputNameString} can't be empty`);
 
@@ -96,24 +95,20 @@ function numberValidation(inputDOM, reqLength, inputNameString, objProperty) {
             inputDOM.classList.remove('error');
         }, 3000)
     } else {
-        return objProperty = inputDOM.value;
+        return inputDOM.value;
     }
 }
 
 cardForm.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
         let cardInfoObj = {
-            cardNumber: 0,
-            month: 0,
-            year: 0,
-            cvv: 0,
-            cardHolder: ''
+            cardNumber: numberValidation(numberInput, 16, 'Card'),
+            month: numberValidation(validMonthInput, 2, 'Month'),
+            year: numberValidation(validYearInput, 2, 'Year'),
+            cvv: numberValidation(cvvInput, 3, 'CVV'),
+            cardHolder: '',
         }, error_key = false;
 
-        numberValidation(numberInput, 16, 'Card', cardInfoObj.cardNumber);
-        numberValidation(validMonthInput, 2, 'Month', cardInfoObj.month);
-        numberValidation(validYearInput, 2, 'Year', cardInfoObj.year);
-        numberValidation(cvvInput, 3, 'CVV', cardInfoObj.cvv);
         if(holderInput.value == null || holderInput.value == '') {
             console.log("Card holder name can't be empty");
 
@@ -135,18 +130,19 @@ cardForm.addEventListener('keydown', function (e) {
         for (let key in cardInfoObj) {
             if (cardInfoObj.hasOwnProperty(key) && !cardInfoObj[key]) {
                 error_key = true;
-                alert('Заповність правильно поля у карті!');
+                // card.removeAttribute('style')
                 card.classList.add('error');
                 setTimeout(() => {
                     card.classList.remove('error');
-                }, 700)
-
+                }, 1000)
+                alert('Заповність правильно поля у карті!');
                 break;
             }
         }
 
         if (!error_key) {
             console.log(cardInfoObj);
+            alert('Хороша робота ' + cardInfoObj.cardHolder);
         }
     }
 })
