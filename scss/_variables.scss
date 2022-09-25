@@ -1,0 +1,27 @@
+$color-main: #006fe8;
+$color-yellov: #ffcc00;
+$color-white: #FFFFFF;
+$color-dark: #1C1C1C;
+
+$gradient-main: linear-gradient(90deg, rgba(0,111,232,1) 0%, rgba(0,48,99,1) 100%);
+
+$fontsize: 18px;
+$font-main: 'Ubuntu', sans-serif;
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}

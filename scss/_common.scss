@@ -1,0 +1,299 @@
+@use "sass:math";
+
+.fp-watermark {
+  display: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  min-width: 320px;
+  margin: auto;
+  perspective: 1000px;
+  background-color: $color-dark;
+  color: $color-white;
+  font-family: $font-main;
+  @include scrollbar($color-yellov);
+}
+
+a {
+  display: block;
+}
+
+h1 {
+  font-size: 34px;
+  line-height: 140%;
+}
+
+p {
+  font-size: $fontsize;
+  line-height: 160%;
+}
+
+.highlight {
+  color: $color-main;
+  font-weight: 700;
+
+  span {
+    color: $color-white;
+    font-weight: 300;
+  }
+}
+
+.container {
+  max-width: 1680px;
+  margin: 0 auto;
+  width: perc(1680, 1920);
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: $color-white;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+  padding: 10px;
+
+  span {
+    font-weight: 300;
+    transition: inherit;
+  }
+
+  &:hover {
+    span {
+      color: $color-main;
+    }
+  }
+}
+
+.btn {
+  padding: 15px 30px;
+  font-size: 16px;
+  background-color: $color-main;
+  cursor: pointer;
+  font-weight: 400;
+  border-radius: 25px;
+  transition: 0.3s ease-in-out all;
+  color: $color-white;
+
+  &:hover {
+    background-color: darken($color-main, 15);
+    border-radius: 10px;
+  }
+}
+
+.btn-text {
+  color: $color-main;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
+  transition: 0.3s ease-in-out all;
+
+  &::before {
+    content: '›';
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: $color-main;
+    font-size: 24px;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-weight: 400;
+    transition: inherit;
+  }
+
+  &:hover {
+    &::before {
+      border-radius: 10px;
+    }
+  }
+}
+
+.header {
+  padding: 55px 0;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.card-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 160px 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/ukraine.svg") no-repeat center/80%;
+    opacity: 0.02;
+    pointer-events: none;
+  }
+
+  &__container {
+    max-width: 1120px;
+  }
+
+  &__row {
+    display: flex;
+    gap: 6vw;
+  }
+
+  &__descr {
+    flex: 1;
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__card {
+    transform-style: preserve-3d;
+  }
+}
+
+.card {
+  position: relative;
+  height: 288px;
+  padding: 40px 45px 32px 50px;
+  border-radius: 15px;
+  background: $gradient-main;
+  max-width: 458px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: inherit;
+    background: inherit;
+    top: 15px;
+    left: -15px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.3;
+    transform: translateZ(-50px);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../images/ukraine.svg") no-repeat center/80%;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+
+  &__logo {
+    font-weight: 700;
+    text-align: right;
+    font-size: 20px;
+    margin-bottom: 15px;
+    transform: translateZ(15px);
+
+    span {
+      font-weight: 300;
+    }
+  }
+
+  &__chip {
+    width: 70px;
+    object-fit: contain;
+    margin-bottom: 25px;
+  }
+
+  &__form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__form-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__input {
+    font-size: 18px;
+    color: $color-white;
+    background-color: transparent;
+    @include transparent-bg-input($color-white);
+    border-bottom: 2px solid transparent;
+    transition: 0.3s ease-in-out all;
+
+    &::placeholder {
+      color: darken($color-white, 40);
+    }
+
+    &_number,
+    &_cardholder {
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+    &_number {
+      width: 196px;
+    }
+
+    &_valid {
+      width: 22px;
+      text-align: center;
+    }
+
+    &_cvv {
+      width: 35px;
+      text-align: center;
+    }
+
+    &_cardholder {
+      width: 100%;
+    }
+
+    &.error {
+      border-bottom: 2px solid #8f0000;
+    }
+  }
+
+  &__input-area {
+    display: flex;
+    gap: 5px;
+  }
+
+  &.error {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  }
+}

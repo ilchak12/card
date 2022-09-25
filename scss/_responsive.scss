@@ -1,0 +1,102 @@
+@use "sass:math";
+
+@media only screen and (min-width: 2559px) {
+
+}
+
+@media only screen and (min-width: 1921px) {
+
+}
+
+@media only screen and (max-width: 1621px) {
+
+}
+
+@media only screen and (max-width: 1281px) {
+}
+
+@media only screen and (max-width: 1025px) {
+	.header {
+		padding: 30px 0;
+	}
+
+	.card-section {
+		padding: 100px 0 50px;
+
+		&__row {
+			gap: 30px;
+		}
+
+		&__card {
+			transform-style: flat;
+			transform: none !important;
+		}
+	}
+
+	.card {
+		max-width: 350px;
+		height: 220px;
+		padding: 25px 25px 15px 30px;
+
+		&::after {
+			top: 7px;
+			left: -7px;
+		}
+
+		&__logo {
+			font-size: 18px;
+		}
+
+		&__chip {
+			width: 60px;
+			margin-bottom: 15px;
+		}
+	}
+}
+
+@media only screen and (max-width: 901px) {
+}
+
+@media only screen and (max-width: 769px) {
+	h1 {
+		font-size: 28px;
+	}
+
+	p {
+		font-size: 16px;
+	}
+
+	.container {
+		width: 100%;
+		padding: 0 15px;
+	}
+
+	.btn {
+		padding: 10px 20px;
+	}
+
+	.card-section {
+		&__row {
+			flex-direction: column;
+		}
+
+		&__card {
+			align-self: center;
+		}
+	}
+}
+
+@media only screen and (max-width: 651px) {
+}
+
+@media only screen and (max-width: 551px) {
+}
+
+@media only screen and (max-width: 421px) {
+}
+
+@media only screen and (max-width: 361px) {
+}
+
+@media only screen and (max-width: 321px) {
+}

@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?cqhje6');
+    src:  url('../fonts/icomoon.eot?cqhje6#iefix') format('embedded-opentype'),
+    //url('../fonts/icomoon.woff2?cqhje6') format('woff2'),
+    url('../fonts/icomoon.ttf?cqhje6') format('truetype'),
+    url('../fonts/icomoon.woff?cqhje6') format('woff'),
+    url('../fonts/icomoon.svg?cqhje6#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+@include font('Ubuntu', normal, 400, '../fonts/ubuntu-regular-webfont.woff2');
+@include font('Ubuntu', normal, 300, '../fonts/ubuntu-light-webfont.woff2');
+@include font('Ubuntu', normal, 700, '../fonts/ubuntu-bold-webfont.woff2');
+
+@include font('Raleway', normal, 400, '../fonts/raleway-regular-webfont.woff2');
+@include font('Raleway', normal, 700, '../fonts/raleway-bold-webfont.woff2');
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-filters:before {
+    content: "\e907";
+}
+.icon-mail:before {
+    content: "\e903";
+}
+.icon-telegram:before {
+    content: "\e904";
+}
+.icon-instagram:before {
+    content: "\e905";
+}
+.icon-arrow-down:before {
+    content: "\e999";
+}
+.icon-close-burger:before {
+    content: "\e910";
+}
+.icon-arrow-up:before {
+    content: "\e902";
+}
+.icon-copy-right:before {
+    content: "\e90b";
+}
+.icon-facebook:before {
+    content: "\e90c";
+}
+.icon-linkedin:before {
+    content: "\e90e";
+}
+.icon-phone:before {
+    content: "\e906";
+}
+.icon-twitter:before {
+    content: "\e90f";
+}
+.icon-arrow-next:before {
+    content: "\e900";
+}
+.icon-arrow-prev:before {
+    content: "\e901";
+}
